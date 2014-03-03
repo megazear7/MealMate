@@ -2,6 +2,16 @@ MealMate::Application.routes.draw do
 
   devise_for :users
   root :to => "home#index"
+
+  resources :users do
+    resources :plans do
+      resources :meals do
+        resources :options do
+          resources :foods
+        end
+      end
+    end
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
