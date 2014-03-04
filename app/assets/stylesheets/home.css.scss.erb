@@ -1,0 +1,41 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* --- Start Griddy --- */
+
+/* --- Start User Input Section --- */
+
+// This should be the name of the container of the griddy
+$container_name: "container";
+
+// $container_width must be a percentage and $height must be a pixel amount
+$container_width: 80%;
+$height: 100px;
+
+// $margin_width must be a percentage, and $margin_height must be a pixel amount
+$margin_width: 0%;
+$margin_height: 0px;
+
+// $padding_width must be a percentage, and $padding_height must be a pixel amount
+$padding_width: 2%;
+$padding_height: 20px;
+
+// This will change how thick the *_edge class are
+$edge_color_width: 10px;
+
+// These should add up to 100%
+$page: 100%;
+$sidebar_width: 0%; 
+
+/* --- End User Input Section --- */
+
+.#{$container_name} {
+	width:$container_width;
+	margin:auto;
+}
+
+/* --- Import Griddy --- */
+@import 'griddy/griddy';
+
+/* --- End Griddy --- */
