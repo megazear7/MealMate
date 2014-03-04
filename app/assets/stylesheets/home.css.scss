@@ -20,8 +20,8 @@
 /* --- Page Height and Width Section --- */
 	// To keep video aspect ratio $page / $height = 7.1188
 	// $page is the width of the content section. The full width is $page + $edge_color_width
-	$page: 100%;		//	992px	1100px 	1000px		800px	
-	$height: 100px;	//	185px	154.5px	140.47px	112.38px
+	$page: 100%;
+	$height: 100px;
 /* --- End Page Height and Width Section --- */
 
 /* --- Sidebar Width Section --- */
@@ -30,9 +30,17 @@
 	$sidebar_width: 0%; 
 /* --- End Sidebar Width Section --- */
 
+/* --- Container Class Definition --- */
+
+.container {
+	width:50%;
+	margin:auto;
+}
+
+
 /* --------- End User Input Variables Section ---------------*/
 
 $page_width: $page + $sidebar_width; // This is not a variable to modify. This is a calculated variable
 
 /* -------- Import Griddy ------------------------------ */
-@import 'griddy/griddy_relative';
+@import 'griddy/griddy';
