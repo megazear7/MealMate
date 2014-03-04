@@ -1,3 +1,38 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Home Page Grid CSS */
+
+/*  --------- User Input Variable (i.e. change these to change the page) ------------ */
+
+/* --- Component Customization Section --- */
+	// $margin must be less than $sidebar_width
+	// A large $padding could cause smaller elements to not have enough space for content
+	// $edge_color_width does not contribute to the dimensions of the elements. keeping it less than padding is a good idea
+	$margin_height: 0px; //5px
+	$margin_width: 0%; //5px
+	$padding_height: 20px; //20px
+	$padding_width: 2%; //20px
+	$edge_color_width: 10px;
+/* End Component Customization Section */
+
+/* --- Page Height and Width Section --- */
+	// To keep video aspect ratio $page / $height = 7.1188
+	// $page is the width of the content section. The full width is $page + $edge_color_width
+	$page: 100%;		//	992px	1100px 	1000px		800px	
+	$height: 100px;	//	185px	154.5px	140.47px	112.38px
+/* --- End Page Height and Width Section --- */
+
+/* --- Sidebar Width Section --- */
+	// must be greater than $margin
+	// the actual sidebar width is $sidebar_width - $margin
+	$sidebar_width: 0%; 
+/* --- End Sidebar Width Section --- */
+
+/* --------- End User Input Variables Section ---------------*/
+
+$page_width: $page + $sidebar_width; // This is not a variable to modify. This is a calculated variable
+
+/* -------- Import Griddy ------------------------------ */
+@import 'griddy/griddy_relative';
