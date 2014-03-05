@@ -44,9 +44,13 @@ gem 'devise'
 
 # Use will_paginate
 gem "will_paginate", "~> 3.0.5"
+gem 'will_paginate-bootstrap'
 
 # Use Griddy
 gem "griddy", "~> 0.0.1"
+
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.0.3.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

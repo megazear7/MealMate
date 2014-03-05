@@ -1,0 +1,13 @@
+<%= form_for @plan do |p| %>
+
+  <%= f.label :title %><br/>
+  <%= f.text_field :title %><br/><br/>
+
+  <%= f.label :description %><br/>
+  <%= f.text_field :description %><br/><br/>
+
+  <%= f.fields_for :meals do |builder | %>
+    <%= render 'meals_fields', :f => builder %>
+  <% end %>
+
+<% end %>

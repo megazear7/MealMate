@@ -8,10 +8,22 @@
 </head>
 <body>
 
-<p class="notice no-margin"><%= notice %></p>
-<p class="alert no-margin"><%= alert %></p>
+<div class="container center_links">
 
-<%= yield %>
+	<p class="notice no-margin"><%= notice %></p>
+	<p class="alert no-margin"><%= alert %></p>
+
+	<% if user_signed_in? %>
+		<%= link_to "Home", root_path, :method => :get %>
+		<%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+		<%= link_to "Edit Account", edit_user_registration_path(current_user), :method => :get %>
+		<%= link_to "Meal Plans", plans_path, :method => :get %>
+	<% else %>
+		<%= link_to "Login", new_user_session_path, :method => :get %>
+		<%= link_to "Create New Account", new_user_registration_path, :method => :get %>
+	<% end %>
+	<%= yield %>
+</div>
 
 </body>
 </html>

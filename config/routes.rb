@@ -3,12 +3,10 @@ MealMate::Application.routes.draw do
   devise_for :users
   root :to => "home#index"
 
-  resources :users do
-    resources :plans do
-      resources :meals do
-        resources :options do
-          resources :foods
-        end
+  resources :plans do
+    resources :meals do
+      resources :options do
+        resources :foods
       end
     end
   end
