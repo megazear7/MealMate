@@ -1,9 +1,15 @@
 class PlansController < ApplicationController
 
   def index
+    if user_signed_in?
+      @user = current_user
+    end
   end
 
   def show
+    if user_signed_in?
+      @user = current_user
+    end
   end
 
   def new
@@ -23,6 +29,9 @@ class PlansController < ApplicationController
   end
 
   def edit
+  end
+
+  def create
     if user_signed_in?
       @user = current_user
     end
@@ -38,9 +47,6 @@ class PlansController < ApplicationController
     end
   end
 
-  def create
-  end
-
   def update
   end
 
@@ -49,7 +55,7 @@ class PlansController < ApplicationController
 
   private
    def plans_params
-      params.require(:book).permit(:title, :description, :_destroy, meals_attributes: [:id, :title, :description, options_attributes: [:id, :title, :description, :_destroy, foods_attributes: [:id, :title, :description, :calories, :protien, :fat, :transfat, :monofat, :polyfat, :carbs, :suger, :fiber, :_destroy]]])
+      params.require(:plan).permit(:title, :description, :_destroy, meals_attributes: [:id, :title, :description, options_attributes: [:id, :title, :description, :_destroy, foods_attributes: [:id, :title, :description, :calories, :protien, :fat, :transfat, :monofat, :polyfat, :carbs, :suger, :fiber, :_destroy]]])
    end
 
 end

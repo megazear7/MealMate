@@ -1,3 +1,24 @@
 <h1>List meal plans for current_user here</h1>
 <%= link_to "Create New Plan", new_plan_path, :method => :get %>
 <p>One of these plans needs to be capable of beeing set as primary</p>
+
+<% @user.plans.each do |p| %>
+  <% p.meals.each do |m| %>
+    <% m.options.each do |o| %>
+      <% m.foods.each do |f| %>
+        <p>title: <%= f.title %>
+        <p>description: <%= f.description %>
+        <p>calories: <%= f.calories %>
+        <p>protien: <%= f.protien %>
+        <p>fat: <%= f.fat %>
+        <p>transfat: <%= f.transfat %>
+        <p>monofat: <%= f.monofat %>
+        <p>polyfat: <%= f.polyfat %>
+        <p>carbs: <%= f.carbs %>
+        <p>suger: <%= f.suger %>
+        <p>fiber: <%= f.fiber %>
+        <p>food_id: <%= f.food_id %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
