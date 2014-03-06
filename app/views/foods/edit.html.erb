@@ -1,3 +1,42 @@
 <h1>Edit Food</h1>
 
-<%= render partial: 'form' %>
+<%= form_for @food, url: plan_meal_option_food_path do |f| %>
+
+  <%= f.label :title %><br/>
+  <%= f.text_field :title %><br/><br/>
+
+  <%= f.label :description %><br/>
+  <%= f.text_field :description %><br/><br/>
+
+  <%= f.label :calories %><br/>
+  <%= f.text_field :calories %><br/><br/>
+
+  <%= f.label :protien %><br/>
+  <%= f.text_field :protien %><br/><br/>
+
+  <%= f.label :fat %><br/>
+  <%= f.text_field :fat %><br/><br/>
+
+  <%= f.label :transfat %><br/>
+  <%= f.text_field :transfat %><br/><br/>
+
+  <%= f.label :monofat %><br/>
+  <%= f.text_field :monofat %><br/><br/>
+
+  <%= f.label :polyfat %><br/>
+  <%= f.text_field :polyfat %><br/><br/>
+
+  <%= f.label :carbs %><br/>
+  <%= f.text_field :carbs %><br/><br/>
+
+  <%= f.label :suger %><br/>
+  <%= f.text_field :suger %><br/><br/>
+
+  <%= f.label :fiber %><br/>
+  <%= f.text_field :fiber %><br/><br/>
+
+  <%= f.hidden_field :_destroy %>
+
+  <%= f.submit %>
+
+<% end %>
