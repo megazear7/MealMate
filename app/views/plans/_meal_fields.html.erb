@@ -5,7 +5,5 @@
 <%= f.text_field :description %><br/><br/>
 
 <%= f.fields_for :options do |builder | %>
-  <%= render 'options_fields', :f => builder %>
+  <%= render 'option_fields', :f => builder %>
 <% end %>
-
-

@@ -52,6 +52,9 @@ gem "griddy", "~> 0.0.1"
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
+gem 'better_errors'
+gem 'binding_of_caller'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

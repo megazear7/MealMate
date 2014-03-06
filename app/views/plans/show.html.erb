@@ -1,22 +1,20 @@
 <h1>This page shows one plan</h1>
 
-<% @user.plans.each do |p| %>
-  <% p.meals.each do |m| %>
-    <% m.options.each do |o| %>
-      <% m.foods.each do |f| %>
-        <p>title: <%= f.title %>
-        <p>description: <%= f.description %>
-        <p>calories: <%= f.calories %>
-        <p>protien: <%= f.protien %>
-        <p>fat: <%= f.fat %>
-        <p>transfat: <%= f.transfat %>
-        <p>monofat: <%= f.monofat %>
-        <p>polyfat: <%= f.polyfat %>
-        <p>carbs: <%= f.carbs %>
-        <p>suger: <%= f.suger %>
-        <p>fiber: <%= f.fiber %>
-        <p>food_id: <%= f.food_id %>
-      <% end %>
+<% @plan.meals.each do |m| %>
+  <% m.options.each do |o| %>
+    <% m.foods.each do |f| %>
+      <p>title: <%= f.title %>
+      <p>description: <%= f.description %>
+      <p>calories: <%= f.calories %>
+      <p>protien: <%= f.protien %>
+      <p>fat: <%= f.fat %>
+      <p>transfat: <%= f.transfat %>
+      <p>monofat: <%= f.monofat %>
+      <p>polyfat: <%= f.polyfat %>
+      <p>carbs: <%= f.carbs %>
+      <p>suger: <%= f.suger %>
+      <p>fiber: <%= f.fiber %>
+      <p>food_id: <%= f.food_id %>
     <% end %>
   <% end %>
 <% end %>

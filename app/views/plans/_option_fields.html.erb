@@ -4,8 +4,8 @@
 <%= f.label :description, "Options Description" %><br/>
 <%= f.text_field :description %><br/><br/>
 
-<%= f.fields_for :options do |builder | %>
-  <%= render 'foods_fields', :f => builder %>
+<%= f.fields_for :foods do |builder | %>
+  <%= render 'food_fields', :f => builder %>
 <% end %>
 
-
+<p><%= link_to_add_fields "Add Foods", f, :foods %></p>

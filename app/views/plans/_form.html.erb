@@ -7,7 +7,7 @@
   <%= f.text_field :description %><br/><br/>
 
   <%= f.fields_for :meals do |builder | %>
-    <%= render 'meals_fields', :f => builder %>
+    <%= render 'meal_fields', :f => builder %>
   <% end %>
 
   <%= f.submit %>
