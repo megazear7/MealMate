@@ -3,12 +3,16 @@ class PlansController < ApplicationController
   def index
     if user_signed_in?
       @user = current_user
+    else
+      redirect_to new_user_session_path
     end
   end
 
   def show
     if user_signed_in?
       @user = current_user
+    else
+      redirect_to new_user_session_path
     end
     @plan = Plan.find(plan_id)
   end
@@ -16,32 +20,40 @@ class PlansController < ApplicationController
   def new
     if user_signed_in?
       @user = current_user
+    else
+      redirect_to new_user_session_path
     end
   
     @plan = Plan.new
-    4.times { @plan.meals.build }
-
-    @plan.meals.each do |u|
-      4.times { u.options.build }
-      u.options.each do |o|
-        o.foods.build
+    4.times do
+      plan = @plan.meals.build
+      4.times do
+        option = plan.options.build
+        option.foods.build
       end
     end
 
   end
 
   def edit
+    if user_signed_in?
+      @user = current_user
+    else
+      redirect_to new_user_session_path
+    end
+
+    @plan = Plan.find(plan_id)
   end
 
   def create
     if user_signed_in?
       @user = current_user
+    else
+      redirect_to new_user_session_path
     end
   
-    @plan = @user.plans.create(plans_params)
+    @plan = @user.plans.create(plan_params)
   
-    aa
-
     if @plan.save
       flash[:notice] = "Successfully created new plan"
       redirect_to plan_path(@plan)
@@ -52,13 +64,29 @@ class PlansController < ApplicationController
   end
 
   def update
+    if user_signed_in?
+      @user = current_user
+    else
+      redirect_to new_user_session_path
+    end
+  
+    @plan = Plan.find(plan_id)
+    @plan.update(plan_params)
+  
+    if @plan.save
+      flash[:notice] = "Successfully updated new plan"
+      redirect_to plan_path(@plan)
+    else
+      flash[:notice] = "Error in updating new plan"
+      render :action => 'new'
+    end
   end
 
   def destroy
   end
 
   private
-    def plans_params
+    def plan_params
       params.require(:plan).permit(:title, :description, :meals_attributes => [:id, :title, :description, :options_attributes => [:id, :title, :description, :foods_attributes => [:id, :title, :description, :calories, :protien, :fat, :transfat, :monofat, :polyfat, :carbs, :suger, :fiber, :_destroy]]])
     end
 

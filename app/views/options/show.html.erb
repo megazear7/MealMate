@@ -1,0 +1,20 @@
+<br/>
+<br/>
+<div class="option">
+<%= @option.title %>: 
+<br/><%= @option.description %><br/><br/>
+<% @option.foods.each do |f| %>
+  title: <%= f.title %><br/>
+  description: <%= f.description %><br/>
+  calories: <%= f.calories %><br/>
+  protien: <%= f.protien %><br/>
+  fat: <%= f.fat %><br/>
+  transfat: <%= f.transfat %><br/>
+  monofat: <%= f.monofat %><br/>
+  polyfat: <%= f.polyfat %><br/>
+  carbs: <%= f.carbs %><br/>
+  suger: <%= f.suger %><br/>
+  fiber: <%= f.fiber %><br/>
+<% end %>
+<br/><%= link_to "Delete", plan_meal_option_path(@option.meal.plan, @option.meal, @option), :method => :delete %><br/>
+</div>

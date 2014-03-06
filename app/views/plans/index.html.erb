@@ -3,22 +3,33 @@
 <p>One of these plans needs to be capable of beeing set as primary</p>
 
 <% @user.plans.each do |p| %>
+  <div class="plan">
+  <h1><%= p.title %></h1><p><%= p.description %></p>
+  <%= link_to "View", plan_path(p), :method => :get %> |
+  <%= link_to "Edit", edit_plan_path(p), :method => :get %> |
+  <%= link_to "Delete", plan_path(p), :method => :delete %><br/><br/>
   <% p.meals.each do |m| %>
+    <div class="meal">
+    <br/><%= link_to "View", plan_meal_path(p, m), :method => :get %> |
+    <%= link_to "Edit", edit_plan_meal_path(p, m), :method => :get %><br/><br/>
     <% m.options.each do |o| %>
-      <% m.foods.each do |f| %>
-        <p>title: <%= f.title %>
-        <p>description: <%= f.description %>
-        <p>calories: <%= f.calories %>
-        <p>protien: <%= f.protien %>
-        <p>fat: <%= f.fat %>
-        <p>transfat: <%= f.transfat %>
-        <p>monofat: <%= f.monofat %>
-        <p>polyfat: <%= f.polyfat %>
-        <p>carbs: <%= f.carbs %>
-        <p>suger: <%= f.suger %>
-        <p>fiber: <%= f.fiber %>
-        <p>food_id: <%= f.food_id %>
+      <div class="option">
+      <%= link_to "View", plan_meal_option_path(p, m, o), :method => :get %> |
+      <%= link_to "Edit", edit_plan_meal_option_path(p, m, o), :method => :get %><br/>
+      <%= o.title %>: 
+      <br/><%= o.description %><br/><br/>
+      <% count = 1 %>
+      <% o.foods.each do |f| %>
+        <%= count %> - 
+        <%= link_to "View", plan_meal_option_food_path(p, m, o, f), :method => :get %> |
+        <%= link_to "Edit", edit_plan_meal_option_food_path(p, m, o, f), :method => :get %> |
+        <%= link_to "Delete", plan_meal_option_food_path(p, m, o, f), :method => :delete %>
+        <%= f.title %>: <%= f.description %><br/>
+        <% count += 1 %>
       <% end %>
+      </div>
     <% end %>
+    </div>
   <% end %>
+  </div>
 <% end %>

@@ -1,20 +1,23 @@
 <h1>This page shows one plan</h1>
 
+<div class="plan">
+<h1><%= @plan.title %></h1><p><%= @plan.description %></p>
+<%= link_to "Edit", edit_plan_path(@plan), :method => :get %> |
+<%= link_to "Delete", plan_path(@plan), :method => :delete %><br/><br/>
 <% @plan.meals.each do |m| %>
+  <div class="meal">
+  <%= link_to "View", plan_meal_path(@plan, m), :method => :get %> |
+  <%= link_to "Edit", edit_plan_meal_path(@plan, m), :method => :get %><br/>
   <% m.options.each do |o| %>
-    <% m.foods.each do |f| %>
-      <p>title: <%= f.title %>
-      <p>description: <%= f.description %>
-      <p>calories: <%= f.calories %>
-      <p>protien: <%= f.protien %>
-      <p>fat: <%= f.fat %>
-      <p>transfat: <%= f.transfat %>
-      <p>monofat: <%= f.monofat %>
-      <p>polyfat: <%= f.polyfat %>
-      <p>carbs: <%= f.carbs %>
-      <p>suger: <%= f.suger %>
-      <p>fiber: <%= f.fiber %>
-      <p>food_id: <%= f.food_id %>
+    <div class="option">
+    <%= link_to "View", plan_meal_option_path(@plan, m, o), :method => :get %> |
+    <%= link_to "Edit", edit_plan_meal_option_path(@plan, m, o), :method => :get %><br/>
+    <% o.foods.each do |f| %>
+      title: <%= f.title %><br/>
+      description: <%= f.description %><br/>
     <% end %>
+    </div>
   <% end %>
+  </div>
 <% end %>
+</div>

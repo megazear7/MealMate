@@ -20,3 +20,26 @@
 .center_links {
   text-align:center;
 }
+
+.food {
+  background-color:grey;
+}
+
+.option {
+  display: inline-block;
+  width:20%;
+  margin: 0% 1% 0%;
+  padding: 1%;
+  margin-bottom:25px;
+  background-color:grey;
+}
+
+.meal {
+  background-color:darkgrey;
+  margin-bottom:30px;
+}
+
+.plan {
+  background-color:grey;
+  padding-bottom: 20px;
+}
