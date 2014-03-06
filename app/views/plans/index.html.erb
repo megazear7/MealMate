@@ -11,7 +11,8 @@
   <% p.meals.each do |m| %>
     <div class="meal">
     <br/><%= link_to "View", plan_meal_path(p, m), :method => :get %> |
-    <%= link_to "Edit", edit_plan_meal_path(p, m), :method => :get %><br/><br/>
+    <%= link_to "Edit", edit_plan_meal_path(p, m), :method => :get %> |
+    <%= m.title %><br/><br/>
     <% m.options.each do |o| %>
       <div class="option">
       <%= link_to "View", plan_meal_option_path(p, m, o), :method => :get %> |

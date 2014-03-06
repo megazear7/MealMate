@@ -1,6 +1,7 @@
 <div class="meal">
 <br/><%= link_to "View", plan_meal_path(@meal.plan, @meal), :method => :get %> |
-<%= link_to "Edit", edit_plan_meal_path(@meal.plan, @meal), :method => :get %><br/><br/>
+<%= link_to "Edit", edit_plan_meal_path(@meal.plan, @meal), :method => :get %> |
+<%= @meal.title %><br/><br/>
 <% @meal.options.each do |o| %>
   <div class="option">
   <%= link_to "View", plan_meal_option_path(@meal.plan, @meal, o), :method => :get %> |
