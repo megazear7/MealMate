@@ -1,0 +1,15 @@
+<%= form_for @meal, url: plan_meal_path do |f| %>
+
+  <%= f.label :title, "Meal Title" %><br/>
+  <%= f.text_field :title %><br/><br/>
+
+  <%= f.label :description, "Meal Description" %><br/>
+  <%= f.text_field :description %><br/><br/>
+
+  <%= f.fields_for :options do |builder | %>
+    <%= render 'option_fields', :f => builder %>
+  <% end %>
+
+  <%= f.submit %>
+
+<% end %>

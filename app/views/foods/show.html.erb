@@ -1,0 +1,16 @@
+<br/><br/> 
+<%= link_to "View", plan_meal_option_food_path(@food.option.meal.plan, @food.option.meal, @food.option, @food), :method => :get %> |
+<%= link_to "Edit", edit_plan_meal_option_food_path(@food.option.meal.plan, @food.option.meal, @food.option, @food), :method => :get %> |
+<%= link_to "Delete", plan_meal_option_food_path(@food.option.meal.plan, @food.option.meal, @food.option, @food), :method => :delete %>
+<br/><br/> 
+<%= @food.title %>: <%= @food.description %><br/>
+<br/><br/> 
+calories: <%= @food.calories %><br/>
+protien: <%= @food.protien %><br/>
+fat: <%= @food.fat %><br/>
+transfat: <%= @food.transfat %><br/>
+monofat: <%= @food.monofat %><br/>
+polyfat: <%= @food.polyfat %><br/>
+carbs: <%= @food.carbs %><br/>
+suger: <%= @food.suger %><br/>
+fiber: <%= @food.fiber %><br/>

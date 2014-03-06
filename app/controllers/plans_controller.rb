@@ -83,6 +83,21 @@ class PlansController < ApplicationController
   end
 
   def destroy
+    if user_signed_in?
+      @user = current_user
+    else
+      redirect_to new_user_session_path
+    end
+  
+    @plan = Plan.find(plan_id)
+  
+    if @plan.destroy
+      flash[:notice] = "Successfully destroyed new plan"
+      redirect_to user_path(@user)
+    else
+      flash[:notice] = "Error in destroyed new plan"
+      render :action => 'new'
+    end
   end
 
   private

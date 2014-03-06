@@ -6,6 +6,8 @@
 <% @option.foods.each do |f| %>
   title: <%= f.title %><br/>
   description: <%= f.description %><br/>
+  <%= link_to "View", plan_meal_option_food_path(@option.meal.plan, @option.meal, @option, f), :method => :get %> |
+  <%= link_to "Edit", edit_plan_meal_option_food_path(@option.meal.plan, @option.meal, @option, f), :method => :get %><br/>
   calories: <%= f.calories %><br/>
   protien: <%= f.protien %><br/>
   fat: <%= f.fat %><br/>
@@ -15,6 +17,7 @@
   carbs: <%= f.carbs %><br/>
   suger: <%= f.suger %><br/>
   fiber: <%= f.fiber %><br/>
+  <br/>
 <% end %>
 <br/><%= link_to "Delete", plan_meal_option_path(@option.meal.plan, @option.meal, @option), :method => :delete %><br/>
 </div>

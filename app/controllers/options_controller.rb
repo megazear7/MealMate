@@ -55,6 +55,22 @@ class OptionsController < ApplicationController
   end
 
   def destroy
+    if user_signed_in?
+      @user = current_user
+    else
+      redirect_to new_user_session_path
+    end
+  
+    @option = Option.find(option_id)
+    @meal = @option.meal
+  
+    if @option.destroy
+      flash[:notice] = "Successfully destroyed option"
+      redirect_to plan_meal_path(@meal.plan, @meal)
+    else
+      flash[:notice] = "Error in destroyed option"
+      render :action => 'new'
+    end
   end
 
   private

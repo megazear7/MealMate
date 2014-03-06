@@ -1,0 +1,22 @@
+<div class="meal">
+<br/><%= link_to "View", plan_meal_path(@meal.plan, @meal), :method => :get %> |
+<%= link_to "Edit", edit_plan_meal_path(@meal.plan, @meal), :method => :get %><br/><br/>
+<% @meal.options.each do |o| %>
+  <div class="option">
+  <%= link_to "View", plan_meal_option_path(@meal.plan, @meal, o), :method => :get %> |
+  <%= link_to "Edit", edit_plan_meal_option_path(@meal.plan, @meal, o), :method => :get %><br/>
+  <%= o.title %>: 
+  <br/><br/><%= o.description %><br/><br/>
+  <% count = 1 %>
+  <% o.foods.each do |f| %>
+    <%= count %> - 
+    <%= link_to "View", plan_meal_option_food_path(@meal.plan, @meal, o, f), :method => :get %> |
+    <%= link_to "Edit", edit_plan_meal_option_food_path(@meal.plan, @meal, o, f), :method => :get %> |
+    <%= link_to "Delete", plan_meal_option_food_path(@meal.plan, @meal, o, f), :method => :delete %>
+    <%= f.title %>: <%= f.description %><br/>
+    <% count += 1 %>
+  <% end %>
+  <%= link_to "Add Food", new_plan_meal_option_food_path(@meal.plan, @meal, o, f), :method => :get %> |
+  </div>
+<% end %>
+</div>
