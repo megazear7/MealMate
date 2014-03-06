@@ -39,11 +39,11 @@ class FoodsController < ApplicationController
       redirect_to new_user_session_path
     end
   
-    @food = @user.plans.find([:plan_id]).meals.find([:meal_id]).options.find([:option_id]).create(plan_params)
-  
+    @food = @user.plans.find(plan_id).meals.find(meal_id).options.find(option_id).foods.create(food_params)
+
     if @food.save
       flash[:notice] = "Successfully created new food"
-      redirect_to plan_path(@plan)
+      redirect_to plan_path(@food.option.meal.plan)
     else
       flash[:notice] = "Error in creating new food"
       render :action => 'new'
@@ -95,6 +95,18 @@ class FoodsController < ApplicationController
 
     def food_id
       params.require(:id)
+    end
+
+    def plan_id
+      params.require(:plan_id)
+    end
+
+    def meal_id
+      params.require(:meal_id)
+    end
+
+    def option_id
+      params.require(:option_id)
     end
 
 end

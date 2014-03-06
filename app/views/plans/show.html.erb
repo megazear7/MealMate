@@ -12,9 +12,17 @@
     <div class="option">
     <%= link_to "View", plan_meal_option_path(@plan, m, o), :method => :get %> |
     <%= link_to "Edit", edit_plan_meal_option_path(@plan, m, o), :method => :get %><br/>
+    <%= o.title %>: 
+    <br/><%= o.description %><br/><br/>
+    <% count = 1 %>
     <% o.foods.each do |f| %>
-      title: <%= f.title %><br/>
-      description: <%= f.description %><br/>
+      <%= count %> - 
+      <%= link_to "View", plan_meal_option_food_path(@plan, m, o, f), :method => :get %> |
+      <%= link_to "Edit", edit_plan_meal_option_food_path(@plan, m, o, f), :method => :get %> |
+      <%= link_to "Delete", plan_meal_option_food_path(@plan, m, o, f), :method => :delete %>
+      <%= f.title %>: <%= f.description %><br/>
+      <br/>
+      <% count += 1 %>
     <% end %>
     <%= link_to "Add Food", new_plan_meal_option_food_path(@plan, m, o), :method => :get %>
     </div>

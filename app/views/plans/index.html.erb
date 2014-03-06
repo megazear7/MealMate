@@ -17,7 +17,7 @@
       <%= link_to "View", plan_meal_option_path(p, m, o), :method => :get %> |
       <%= link_to "Edit", edit_plan_meal_option_path(p, m, o), :method => :get %><br/>
       <%= o.title %>: 
-      <br/><br/><%= o.description %><br/><br/>
+      <br/><%= o.description %><br/><br/>
       <% count = 1 %>
       <% o.foods.each do |f| %>
         <%= count %> - 
@@ -26,6 +26,7 @@
         <%= link_to "Delete", plan_meal_option_food_path(p, m, o, f), :method => :delete %>
         <%= f.title %>: <%= f.description %><br/>
         <% count += 1 %>
+        <br/>
       <% end %>
       <%= link_to "Add Food", new_plan_meal_option_food_path(p, m, o), :method => :get %>
       </div>
