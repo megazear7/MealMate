@@ -16,6 +16,7 @@
       title: <%= f.title %><br/>
       description: <%= f.description %><br/>
     <% end %>
+    <%= link_to "Add Food", new_plan_meal_option_food_path(@plan, m, o), :method => :get %>
     </div>
   <% end %>
   </div>

@@ -14,6 +14,12 @@ class FoodsController < ApplicationController
   end
 
   def new
+    if user_signed_in?
+      @user = current_user
+    else
+      redirect_to new_user_session_path
+    end
+    @food = Food.new 
   end
 
   def edit
@@ -27,6 +33,21 @@ class FoodsController < ApplicationController
   end
 
   def create
+    if user_signed_in?
+      @user = current_user
+    else
+      redirect_to new_user_session_path
+    end
+  
+    @food = @user.plans.find([:plan_id]).meals.find([:meal_id]).options.find([:option_id]).create(plan_params)
+  
+    if @food.save
+      flash[:notice] = "Successfully created new food"
+      redirect_to plan_path(@plan)
+    else
+      flash[:notice] = "Error in creating new food"
+      render :action => 'new'
+    end
   end
 
   def update

@@ -14,6 +14,17 @@ class MealsController < ApplicationController
   end
 
   def new
+    if user_signed_in?
+      @user = current_user
+    else
+      redirect_to new_user_session_path
+    end
+  
+    @meal = Meal.new
+    4.times do
+      option = plan.options.build
+      option.foods.build
+    end
   end
 
   def edit

@@ -32,7 +32,6 @@ class PlansController < ApplicationController
         option.foods.build
       end
     end
-
   end
 
   def edit

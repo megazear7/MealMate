@@ -20,4 +20,5 @@
   <br/>
 <% end %>
 <br/><%= link_to "Delete", plan_meal_option_path(@option.meal.plan, @option.meal, @option), :method => :delete %><br/>
+<%= link_to "Add Food", new_plan_meal_option_food_path(@option.meal.plan, @option.meal, @option), :method => :get %>
 </div>

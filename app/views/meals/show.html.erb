@@ -16,7 +16,7 @@
     <%= f.title %>: <%= f.description %><br/>
     <% count += 1 %>
   <% end %>
-  <%= link_to "Add Food", new_plan_meal_option_food_path(@meal.plan, @meal, o, f), :method => :get %> |
+  <%= link_to "Add Food", new_plan_meal_option_food_path(@meal.plan, @meal, o), :method => :get %>
   </div>
 <% end %>
 </div>
